@@ -1,0 +1,23 @@
+AddDefaultCharset windows-1251
+php_flag register_globals on
+RewriteEngine on
+RewriteRule ^index.php(.*)$ - [L]
+RewriteRule ^person.php(.*)$ - [L]
+RewriteRule ^photo.php(.*)$ - [L]
+RewriteRule ^show_portrait.php(.*)$ - [L]
+RewriteRule ^alph/([0-9]{3}|[a-zA-Z])$ /history/people/index.php?letter=$1 [QSA,L]
+RewriteRule ^([0-9]+)$ /history/people/person.php?id=$1 [QSA,L]
+RewriteRule ^(\w+)$ /history/people/person.php?path=$1 [L]
+RewriteRule ^photo/(.*)$ /history/people/photo.php?path=$1 [L]
+RewriteRule ^portrait/(.*).html$ /history/people/show_portrait.php?path=$1 [L]
+
+#Options FollowSymlinks
+#Order allow,deny
+#Allow from all
+#RewriteEngine on
+#RewriteRule ^catalog.php(.*)$ - [L]
+#RewriteRule ^book.php(.*)$ - [L]
+#RewriteRule ^([0-9]+)$ /lib/book.php?id=$1 [L]
+#RewriteRule ^cat/(.*)$ /lib/catalog.php?path=$1 [L]
+#RewriteRule ^author/(.*)$ /lib/catalog.php?author=$1 [L]
+#RewriteRule ^a/(.*)$ /lib/catalog.php?author=$1 [L]

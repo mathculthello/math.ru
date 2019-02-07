@@ -1,0 +1,31 @@
+$LATEX_EXEC = "latex";
+$DVIPS_EXEC = "dvips";
+$GS_EXEC = "gswin32c";
+$PPMTOGIF = "pnmtopng";
+$PNMCROP = "pnmcrop";
+$PNMPAD = "pnmpad";
+$PNMSCALE = "pnmscale";
+$PNMGAMMA = "pnmgamma";
+$PPMCHANGE = "ppmchange";
+$rm = "del";
+
+$DEFAULT_BG_COLOR = "rgb:bf/bf/bf";
+
+$latex_header = <<"MULTILINE";
+\\documentclass{amsart} 
+\\usepackage[cp1251]{inputenc}
+\\usepackage[russian]{babel}
+\\usepackage{amssymb}
+\\usepackage{amsmath}
+\\usepackage{graphics}
+\\usepackage{mmo}
+\\pagestyle{empty}  
+\\thispagestyle{empty} 
+\\begin{document} 
+\\huge
+MULTILINE
+
+$latex_page_sep_string = "\n\n\\newpage\n\n";
+$latex_eof_string = "\n\n\\end{document}\n";
+
+$TMP_DIR = "c:/temp";

@@ -1,0 +1,43 @@
+AddDefaultCharset windows-1251
+php_flag register_globals on
+RewriteEngine on
+RewriteRule ^catalog.php(.*)$ - [L]
+RewriteRule ^book.php(.*)$ - [L]
+RewriteRule ^search.php(.*)$ - [L]
+RewriteRule ^idx.php(.*)$ - [L]
+
+RewriteRule ^cat/search$ /lib/catalog.php?search=1 [QSA,L]
+RewriteRule ^([0-9]+)$ /lib/book.php?id=$1 [L]
+RewriteRule ^ser/(.*?)/(.*?)/(.*?)/(.*?)/(.*?).html$ /lib/catalog.php?s_path=$1&n=$2&o_by=$3&o=$4&page=$5 [QSA,L]
+RewriteRule ^rubr/(.*?)/(.*?)/(.*?)/(.*?)/(.*?).html$ /lib/catalog.php?r_path=$1&n=$2&o_by=$3&o=$4&page=$5 [QSA,L]
+RewriteRule ^cat/(.*?)/(.*?)/(.*?)/(.*?)/(.*?).html$ /lib/catalog.php?c_path=$1&n=$2&o_by=$3&o=$4&page=$5 [QSA,L]
+RewriteRule ^cat/(.*?)/(.*?)/(.*?)/(.*?).html$ /lib/catalog.php?all=1&n=$1&o_by=$2&o=$3&page=$4 [QSA,L]
+RewriteRule ^author/(.*?)/(.*?)/(.*?).html$ /lib/catalog.php?a_path=$1&n=0&o_by=$2&o=$3 [QSA,L]
+RewriteRule ^alph/(.*?)/(.*?)/(.*?).html$ /lib/catalog.php?l=$1&n=0&o_by=$2&o=$3 [QSA,L]
+RewriteRule ^book/(.*).html$ /lib/book.php?path=$1 [QSA,L]
+RewriteRule ^formats(.html)?$ /lib/formats.php [QSA,L]
+RewriteRule ^thanks(.html)?$ /lib/thanks.php [QSA,L]
+RewriteRule ^suggest(.html)?$ /lib/suggest.php [QSA,L]
+RewriteRule ^index.html$ /lib/index.php [QSA,L]
+RewriteRule ^search(.html)?$ /lib/search.php [QSA,L]
+RewriteRule ^index.js$ /lib/idx.php [QSA,L]
+
+RewriteRule ^ser/(.*)$ /lib/catalog.php?s_path=$1 [QSA,L]
+RewriteRule ^rubr/(.*)$ /lib/catalog.php?r_path=$1 [QSA,L]
+RewriteRule ^cat/(.*)$ /lib/catalog.php?c_path=$1 [QSA,L]
+RewriteRule ^author/(.*)$ /lib/catalog.php?a_path=$1 [QSA,L]
+RewriteRule ^alph/(.*)$ /lib/catalog.php?l=$1 [QSA,L]
+RewriteRule ^book/(.*)$ /lib/book.php?path=$1 [L,NE]
+RewriteRule ^([\w-]+)/([0-9]+)$ /lib/book.php?ser=$1&num=$2 [L]
+
+
+#Options FollowSymlinks
+#Order allow,deny
+#Allow from all
+#RewriteEngine on
+#RewriteRule ^catalog.php(.*)$ - [L]
+#RewriteRule ^book.php(.*)$ - [L]
+#RewriteRule ^([0-9]+)$ /lib/book.php?id=$1 [L]
+#RewriteRule ^cat/(.*)$ /lib/catalog.php?path=$1 [L]
+#RewriteRule ^author/(.*)$ /lib/catalog.php?author=$1 [L]
+#RewriteRule ^a/(.*)$ /lib/catalog.php?author=$1 [L]

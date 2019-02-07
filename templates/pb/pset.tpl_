@@ -1,0 +1,31 @@
+{include file="header.tpl"}
+<table border="0" cellpadding="10" cellspacing="5" width="100%">
+<tr>
+<td valign="top">
+{foreach from=$problems item=p}
+<b>Задача {$p.num}</b><br/>
+<img src=/olympiads/gif/{$p.id}.gif>
+<br/>
+{foreach from=$problem.ppic item=pic}
+{$pic.num}
+<img src="/olympiads/pic/{$problem.id}p_{$pic.num}.{$pic.type}"/><br/>
+{/foreach}
+{if $p.solution}
+<b>Решение</b><br/>
+<img src=/olympiads/gif/{$p.id}_s.gif>
+<br/>
+<a href="?id={$pset}&format=gif&solution_ref={$p.solution_ref}">Скрыть решение</a>
+{else}
+<a href="?id={$pset}&format=gif&solution_ref={$p.solution_ref}">Показать решение</a>
+{/if}
+<br/>
+{if $user->status eq "editor"}
+<a href="/olympiads/edit.php?id={$p.id}">Редактировать</a>
+{/if}
+<br/>
+<br/>
+{/foreach}
+</td>
+</tr>
+</table>
+{include file="footer.tpl"}

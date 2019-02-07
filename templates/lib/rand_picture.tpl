@@ -1,0 +1,1 @@
+<a href="/lib/book.php?id={$rand_picture.book}"><img src="/lib/img/{$rand_picture.id}.{$rand_picture.type}" width={$rand_picture.width} height={$rand_picture.height}></a>

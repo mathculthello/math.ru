@@ -1,0 +1,7 @@
+AddDefaultCharset utf-8
+php_value date.timezone "Europe/Moscow"
+#php_flag register_globals on
+#php_flag display_errors on
+AddType application/x-httpd-php .php .shtml
+RewriteEngine on
+#RewriteRule ^reg-mos1.htm$ /auth/reg-mos1.php [QSA,L]

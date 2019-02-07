@@ -1,0 +1,2 @@
+Require all denied
+#AddType application/x-httpd-php .php .htm .html .shtml 

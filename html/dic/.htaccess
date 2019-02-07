@@ -1,0 +1,8 @@
+Require all denied
+php_flag display_errors on
+AddType application/x-httpd-php .php .shtml
+RewriteEngine on
+RewriteRule ^index.php(.*)$ - [L]
+RewriteRule ^alph/(.*)$ /dic/index.php?letter=$1 [L]
+RewriteRule ^rubr/(.*)$ /dic/index.php?rubr=$1 [L]
+RewriteRule ^([0-9]+)$ /dic/index.php?term=$1 [QSA,L]

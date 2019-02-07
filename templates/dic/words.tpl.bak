@@ -1,0 +1,14 @@
+<div class="tit4">&nbsp;Понятия/термины</div>
+<ul>
+{assign var="tp" value="term"}
+{foreach from=$words item=w name=term}
+{assign var="new_tp" value=$w.type}
+{if $tp != $new_tp}
+{assign var="tp" value=$w.type}
+</ul>
+<div class="tit4">&nbsp;Факты/формулы</div>
+<ul>
+{/if}
+<li>{if $w.id == $term}{$w.title}{else}<a href="/dic/{$w.id}">{$w.title}</a>{/if}</li>
+{/foreach}
+</ul>
