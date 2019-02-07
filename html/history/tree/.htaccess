@@ -1,0 +1,17 @@
+RewriteEngine on
+RewriteRule ^new.php(.*)$ - [L]
+RewriteRule ^index.php(.*)$ - [L]
+RewriteRule ^new/(.*)$ /history/tree/new.php?path=$1 [QSA,L]
+RewriteRule ^([0-9]{3}|[a-zA-Z])$ /history/tree/index.php?letter=$1 [QSA,L]
+RewriteRule ^(\w+)$ /history/tree/index.php?path=$1 [L]
+
+#Options FollowSymlinks
+#Order allow,deny
+#Allow from all
+#RewriteEngine on
+#RewriteRule ^catalog.php(.*)$ - [L]
+#RewriteRule ^book.php(.*)$ - [L]
+#RewriteRule ^([0-9]+)$ /lib/book.php?id=$1 [L]
+#RewriteRule ^cat/(.*)$ /lib/catalog.php?path=$1 [L]
+#RewriteRule ^author/(.*)$ /lib/catalog.php?author=$1 [L]
+#RewriteRule ^a/(.*)$ /lib/catalog.php?author=$1 [L]

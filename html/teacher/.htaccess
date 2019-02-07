@@ -1,0 +1,10 @@
+AddDefaultCharset windows-1251
+php_flag register_globals on
+RewriteEngine on
+RewriteRule ^doc/cat.php(.*)$ - [L]
+RewriteRule ^doc/doc.php(.*)$ - [L]
+RewriteRule ^article/view.php(.*)$ - [L]
+RewriteRule ^doc/([0-9]+)$ /teacher/doc/doc.php?id=$1 [QSA,L]
+RewriteRule ^doc/([0-9]+)/([0-9]+)$ /teacher/doc/doc.php?id=$1&part=$2 [QSA,L]
+RewriteRule ^doc/(\w+)$ /teacher/doc/cat.php?cat_path=$1 [QSA,L]
+RewriteRule ^article/([0-9]+)$ /teacher/article/view.php?id=$1 [QSA,L]

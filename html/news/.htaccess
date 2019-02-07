@@ -1,0 +1,5 @@
+AddDefaultCharset windows-1251
+php_flag register_globals on
+RewriteEngine on
+RewriteRule ^index.php(.*)$ - [L]
+RewriteRule ^([0-9]+)$ /news/index.php?id=$1 [L]

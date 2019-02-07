@@ -1,0 +1,258 @@
+<?php
+require_once '../set_env.inc.php';
+require_once 'PHP/Compat.php';
+PHP_Compat::loadFunction('array_combine');
+//$_ADODB->debug = true;
+//print_r($_REQUEST);
+
+function process_tex($tex, $img_names_base = "img") {
+    global $app_root, $_TMP_DIR, $id, $_user_id;
+	
+	$_tmp = $app_root.'/html/admin/tex2png/temp';
+	$_tmp_tex = $_tmp.'/_tmp_latex_term'.$_user_id.'.tex';
+	
+    if(preg_match_all("/(\\$\\$.+?\\$\\$)|(\\$.+?\\$)/s", $tex, $matches)) {
+//print_r($matches);
+        $h = fopen($_tmp_tex, 'w');
+        fwrite($h, $tex);
+        fclose($h);
+//echo `pwd`;
+//$app_root."/html/admin/tex2png/tex2png.pl ".$_tmp."/_tmp_latex.tex  ".$img_names_base.'<br>';
+		exec($app_root.'/html/admin/tex2png/tex2png.pl '. $_tmp_tex .' '. $img_names_base.' '. $_user_id, $out, $ret);
+		if ($ret > 0) {
+			return $out;
+		} else {
+			return false;
+		}
+//		exec('ls -la  ', $out);
+//		$out = `$app_root.'/html/admin/tex2png/tex2png.pl '. $_tmp_tex .' '. $img_names_base`;
+//		return $app_root.'/html/admin/tex2png/tex2png.pl '. $_tmp_tex .' '. $img_names_base.':<br/>'.implode('<br/>', $out); 
+    }
+}
+
+if (isset($_REQUEST['del_wording']) && is_numeric($_REQUEST['del_wording']))
+{
+	$sql = 'DELETE FROM dic_wording WHERE id='.$_REQUEST['del_wording'];
+	$_ADODB->Execute($sql);
+}
+
+if (isset($_REQUEST['del_comp']) && is_numeric($_REQUEST['del_comp']))
+{
+	$sql = 'DELETE FROM dic_comp WHERE id='.$_REQUEST['del_comp'];
+	$_ADODB->Execute($sql);
+	$sql = 'DELETE FROM dic_comp_src WHERE comp='.$_REQUEST['del_comp'];
+	$_ADODB->Execute($sql);
+}
+
+if ($_POST['term']) {
+	$request = process_post_input();
+
+	if (empty ($request['title'])) {
+		$_ERROR_MESSAGE[] = 'Не введено название термина';
+	}
+	if (!empty ($request['src_entry_code'])) {
+		$sql = 'SELECT id FROM dic_src WHERE code=\''.$request['src_entry_code'].'\'';
+		$src_id = $_ADODB->GetOne($sql);
+		if ($src_id <= 0) {
+			$_ERROR_MESSAGE[] = 'Неизвестный код источника для словарной статьи';
+		} else {
+			$request['src_entry'] = $src_id;
+		}
+	}
+	if (!empty ($request['src_formula_code'])) {
+		$sql = 'SELECT id FROM dic_src WHERE code=\''.$request['src_formula_code'].'\'';
+		$src_id = $_ADODB->GetOne($sql);
+		if ($src_id <= 0) {
+			$_ERROR_MESSAGE[] = 'Неизвестный код источника для строгой формулировки';
+		} else {
+			$request['src_formula'] = $src_id;
+		}
+	}
+	if (!empty ($request['src_comment_code'])) {
+		$sql = 'SELECT id FROM dic_src WHERE code=\''.$request['src_comment_code'].'\'';
+		$src_id = $_ADODB->GetOne($sql);
+		if ($src_id <= 0) {
+			$_ERROR_MESSAGE[] = 'Неизвестный код источника для комментария';
+		} else {
+			$request['src_comment'] = $src_id;
+		}
+	}
+	if (!empty ($request['src_history_code'])) {
+		$sql = 'SELECT id FROM dic_src WHERE code=\''.$request['src_history_code'].'\'';
+		$src_id = $_ADODB->GetOne($sql);
+		if ($src_id <= 0) {
+			$_ERROR_MESSAGE[] = 'Неизвестный код источника для исторической справки';
+		} else {
+			$request['src_history'] = $src_id;
+		}
+	}
+	if (!empty ($request['src_illustration_code'])) {
+		$sql = 'SELECT id FROM dic_src WHERE code=\''.$request['src_illustration_code'].'\'';
+		$src_id = $_ADODB->GetOne($sql);
+		if ($src_id <= 0) {
+			$_ERROR_MESSAGE[] = 'Неизвестный код источника для иллюстраций';
+		} else {
+			$request['src_illustration'] = $src_id;
+		}
+	}
+
+	if (!empty ($_POST['save']) && !empty ($request['id']) && count($_ERROR_MESSAGE) == 0) {
+		$sql = 'SELECT * FROM dic_term WHERE id='.$request['id'];
+		$rs = $_ADODB->Execute($sql);
+		if ($sql = $_ADODB->GetUpdateSQL($rs, $request)) {
+			$_ADODB->Execute($sql);
+		}
+		$request['term'] = $request['id'];
+		$sql = 'SELECT * FROM dic_term_text WHERE term='.$request['id'];
+		$rs = $_ADODB->Execute($sql);
+		if ($sql = $_ADODB->GetUpdateSQL($rs, $request)) {
+			$_ADODB->Execute($sql);
+		}
+		$msg = 'update';
+	}
+	elseif (!empty ($_POST['save']) && empty ($_REQUEST['id']) && count($_ERROR_MESSAGE) == 0) {
+		$sql = 'SELECT * FROM dic_term WHERE id=-1';
+		$rs = $_ADODB->Execute($sql);
+		if ($sql = $_ADODB->GetInsertSQL($rs, $request)) {
+			if ($_ADODB->Execute($sql)) {
+                $request['id'] = $_ADODB->Insert_ID();
+                $request['term'] = $_ADODB->Insert_ID();
+			} else {
+				$_ERROR_MESSAGE[] = $_ADODB->ErrorMsg();
+			}
+		} else {
+			$_ERROR_MESSAGE[] = $_ADODB->ErrorMsg();
+		}
+		$sql = 'SELECT * FROM dic_term_text WHERE term=-1';
+		$rs = $_ADODB->Execute($sql);
+		if ($sql = $_ADODB->GetInsertSQL($rs, $request)) {
+			if ($_ADODB->Execute($sql)) {
+			} else {
+				$_ERROR_MESSAGE[] = $_ADODB->ErrorMsg();
+			}
+		} else {
+			$_ERROR_MESSAGE[] = $_ADODB->ErrorMsg();
+		}
+		$msg = 'insert';
+	}
+	
+    if (!empty ($request['id']) && count($_ERROR_MESSAGE) == 0) 
+    {
+    	// generate png images for tex formulas
+    	if (strpos($request['title'], '$') !== FALSE) {
+    		$ret = process_tex($request['title'], $_SERVER['DOCUMENT_ROOT']."/dic/img/".$request['id']."t_");
+    		if ($ret) {
+    			$_ERROR_MESSAGE[] = 'Ошибка в формулах в названии: '. implode(',', $ret);
+    		}
+    	}
+    	if (strpos($request['entry'], '$') !== FALSE) {
+    		$ret = process_tex($request['entry'], $_SERVER['DOCUMENT_ROOT']."/dic/img/".$request['id']."e_");
+    		if ($ret) {
+    			$_ERROR_MESSAGE[] = 'Ошибка в формулах в словарной статье: '. implode(',', $ret);
+    		}
+    	}
+    	if (strpos($request['formula'], '$') !== FALSE) {
+    		$ret = process_tex($request['formula'], $_SERVER['DOCUMENT_ROOT']."/dic/img/".$request['id']."f_");
+    		if ($ret) {
+    			$_ERROR_MESSAGE[] = 'Ошибка в формулах в определении: '. implode(',', $ret);
+    		}
+    	}
+    	if (strpos($request['illustration'], '$') !== FALSE) {
+    		$ret = process_tex($request['illustration'], $_SERVER['DOCUMENT_ROOT']."/dic/img/".$request['id']."i_");
+    		if ($ret) {
+    			$_ERROR_MESSAGE[] = 'Ошибка в формулах в иллюстрациях: '. implode(',', $ret);
+    		}
+    	}
+    	if (strpos($request['comment'], '$') !== FALSE) {
+    		$ret = process_tex($request['comment'], $_SERVER['DOCUMENT_ROOT']."/dic/img/".$request['id']."c_");
+    		if ($ret) {
+    			$_ERROR_MESSAGE[] = 'Ошибка в формулах в комментарии: '. implode(',', $ret);
+    		}
+    	}
+    	if (strpos($request['history'], '$') !== FALSE) {
+    		$ret = process_tex($request['history'], $_SERVER['DOCUMENT_ROOT']."/dic/img/".$request['id']."h_");
+    		if ($ret) {
+    			$_ERROR_MESSAGE[] = 'Ошибка в формулах в исторической справке: '. implode(',', $ret);
+    		}
+    	}
+    }
+	
+	if (!empty ($_POST['delete']) && count($_ERROR_MESSAGE) == 0) {
+		$sql = 'DELETE FROM dic_term WHERE id='.$_REQUEST['id'];
+		$_ADODB->Execute($sql);
+		$sql = 'DELETE FROM dic_term_text WHERE term='.$_REQUEST['id'];
+		$_ADODB->Execute($sql);
+		$sql = 'DELETE FROM dic_wording WHERE term='.$_REQUEST['id'];
+		$_ADODB->Execute($sql);
+		$sql = 'DELETE FROM dic_comp WHERE term='.$_REQUEST['id'];
+		$_ADODB->Execute($sql);
+        $msg = 'delete';
+	}
+	
+	if (count($_ERROR_MESSAGE) == 0) {
+		Header('Location: /admin/dic/term.php?type='.$request['type'].'&msg='.$msg.'&id='.$request['id']);
+		exit;
+	}
+} else {
+	if (!empty ($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
+		$sql = 'SELECT t.*,tt.* FROM dic_term t, dic_term_text tt WHERE t.id='.$_REQUEST['id'].' AND tt.term=t.id';
+		$request = $_ADODB->GetRow($sql);
+		$sql = 'SELECT w.*,s.code AS src FROM dic_wording w LEFT JOIN dic_src s ON s.id=w.src WHERE w.term='.$_REQUEST['id'];
+		$request['def'] = $_ADODB->GetAll($sql);
+		$sql = 'SELECT c.* FROM dic_comp c WHERE c.term='.$_REQUEST['id'];
+		$request['comp'] = $_ADODB->GetAll($sql);
+		while (list($k, $v) = each($request['comp'])) {
+			$sql = 'SELECT src FROM dic_comp_src WHERE comp='.$v['id'];
+			$request['comp'][$k]['src'] = $_ADODB->GetCol($sql);
+		}
+	}
+	
+	if ($msg == "insert") {
+		$_MESSAGE = "Информация добавлена";
+	}
+	elseif ($msg == "update") {
+		$_MESSAGE = "Изменения сохранены";
+	}
+	elseif ($msg == "delete") {
+		$_MESSAGE = "Информация удалена";
+	}
+}
+
+if (!empty($_REQUEST['type'])) {
+	$request['type'] = $_REQUEST['type'];
+} else {
+	$request['type'] = 'term';
+}
+
+$sql = 'SELECT id, code AS title FROM dic_src ORDER BY title';
+$request['src_options'] = $_ADODB->GetAssoc($sql);
+
+$sql = 'SELECT id, title FROM dic_term ORDER BY title';
+$request['ref_options'] = $_ADODB->GetAssoc($sql);
+
+$_SMARTY->assign($request);
+$_SMARTY->assign('type_options', array('textbook' => 'Учебник', 'aid' => 'Уч.пособие', 'book' => 'Книга', 'person' => 'Автор', 'inet' => 'Интернет-ресурс', 'other' => 'Другое'));
+$_SMARTY->assign('fact_type_options', array('theorem' => 'Теорема', 'formula' => 'Формула', 'axiom' => 'Аксиома'));
+$_SMARTY->assign('grade_options', array_combine(range(1, 11), range(1, 11)));
+$_SMARTY->assign('error_message', $_ERROR_MESSAGE);
+if ($request['type'] == 'fact') {
+	$_SMARTY->assign('def_columns', array(
+		array ('name' => 'wording', 'title' => 'Формулировка', 'ref' => '1'), 
+		array ('name' => 'comment', 'title' => 'Комментарий'), 
+		array ('name' => 'src', 'title' => 'Источник', 'width' => '300'),
+	));
+} else {
+	$_SMARTY->assign('def_columns', array(
+		array ('name' => 'wording', 'title' => 'Определение', 'ref' => '1'), 
+		array ('name' => 'comment', 'title' => 'Комментарий'), 
+		array ('name' => 'src', 'title' => 'Источник', 'width' => '300'),
+	));
+}
+$_SMARTY->assign('comp_columns', array(
+	array ('name' => 'comp', 'title' => 'Сравнение', 'ref' => '1'), 
+	array ('name' => 'src', 'title' => 'Источники', 'type' => 'multiple_options', 'options' => $request['src_options'], 'width' => '300'),
+));
+$_SMARTY->assign('message', $_MESSAGE);
+$_SMARTY->assign('tab', $_REQUEST['tab']);
+$_SMARTY->display('dic/term.tpl');
+?>

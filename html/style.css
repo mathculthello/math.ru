@@ -1,0 +1,83 @@
+body { padding: 0; margin: 0; background-color: #fff; font: x-small Arial, sans-serif;
+scrollbar-3dlight-color: #406176;
+scrollbar-arrow-color: #527C96;
+scrollbar-base-color: #355061;
+scrollbar-darkshadow-color: #355061;
+scrollbar-face-color: #93a8d2;
+scrollbar-highlight-color: #A2BBCA;
+scrollbar-shadow-color: #1C2A32;
+scrollbar-track-color: #406176;
+ }
+
+#up {position: absolute; top: 0; right: 0;}
+
+#menu {width: 181px; background: url("i/menu_l_fon.gif") #E6E6E6; font: bold 12px; color: #000}
+#menu A {color: #213D7E; text-decoration: none; width: 180px; height: 24px; background: url("i/bm1.gif") #6AA2AC; padding: 4px 12px;}
+#menu A:hover {background: url("i/bm2.gif") #35646C; color: #222}
+#menu A.select {color: #000; text-decoration: none; width: 181px; height: 24px; background: url("i/bm3.gif") #6AA2AC; padding: 4px 12px;}
+
+#search {margin: 6px; width: 100%; background: #D1D1D1; border: solid 1px #6C6C6C; font: normal 10px;}
+#search TD {font: normal 10px;}
+#search H1 {margin: 0; padding: 1px 8px; font: bold 11px; color: #fff; width: 100%; background: #3464B6;}
+INPUT.textform {margin: 1px; width: 100%; border: solid 1px #6C6C6C; font: 11px; color: #3464B6}
+INPUT.button {margin: 1px; width: 100%; border: 0; font: 11px; color: #fff; background: url("i/bmfon.gif") #ccc;}
+
+#content DIV {width: 96%; text-align: left; font: 12px}
+#content A {color: #3464B6}
+#content TABLE {font: 12px}
+#pages TD {font: 11px; color: #444}
+#pages B {background: #3464B6; padding: 2px; color: #fff}
+#pages A {padding: 2px; color: #3464B6}
+#pages A:hover {background: #eee; padding: 2px; text-decoration: none}
+
+
+#right {width: 220px; background: url("i/menu_r_fon.gif") #FCF8F5; font: 11px; color: #000}
+#right H4 {margin: 0; padding: 1px 8px; font: bold 11px; color: #fff; width: 100%; background: url("i/line_h.gif") repeat-x #EE6428;}
+#right H5 {margin: 0; padding: 1px 8px; font: bold 11px; color: #333; width: 100%; background: url("i/line_h.gif") repeat-x #F6CC38;}
+#right H6 {margin: 0; padding: 1px 8px; font: bold 11px; color: #333; width: 100%; background: url("i/line_h.gif") repeat-x #BFDC65;}
+#right P {margin: 0; padding: 6px;}
+#right STRONG {font: 10px; color: #ccc} 
+#right DIV {text-align: right; font: bold 10px; color: #55F; margin: 6px;}
+#right DIV A {text-decoration: none; color: #213D7E;}
+#right DIV A:hover {text-decoration: underline}
+
+#add {text-align: right;}
+#add A {color: #444; background: #eee; border: solid 1px #6C6C6C; text-decoration: none; padding: 0 4px}
+#add A:hover {color: #222; background: #ddd;}
+
+#footer TD {background: #213D7E; font: 10px; color: #A9A9A9;}
+#footer TD A {color: #D9D9D9;}
+#footer TD A:hover {color: #FFF;}
+
+#copy TD {font: 11px; color: #7EB4C9}
+#copy TD A {font: 11px; color: #7EB4C9}
+#copy TD A:hover {color: #fff}
+
+H1 {font-size: 16px; color: #555; margin: 0; padding: 4px 0}
+H2 {font-size: 110%; color: #0f0}
+H3 {font-size: 105%; color: #00f}
+H4 {font-size: 12px; color: #333; margin: 0; padding: 10px 0 2px}
+
+P {text-align: justify; margin: 0; padding: 4px 0}
+HR {height: 1px; color: #3464B6}
+
+FORM {margin: 0; padding: 0;}
+
+
+#catalog {margin: 6px; width: 100%; background: #D1D1D1; border: solid 1px #6C6C6C; font: normal 10px;}
+#catalog TD {font: normal 10px;}
+#catalog H1 {margin: 0; padding: 1px 8px; font: bold 11px; color: #fff; width: 100%; background: #3464B6;}
+#catalog A {color: #213D7E; text-decoration: none; width: 100%; height: 24px; background: #99CCFF; padding: 4px 12px;}
+#catalog A:hover {background: #6699FF; color: #222}
+#catalog A.select {color: #000; text-decoration: none; width: 100%; height: 24px; background: #FFCC99; padding: 4px 12px;}
+
+#alph {margin: 6px; width: 100%; background: #99CCFF; border: solid 1px #6C6C6C; font: normal 10px;}
+#alph TD {font: normal 10px;}
+#alph H1 {margin: 0; padding: 1px 8px; font: bold 11px; color: #fff; width: 100%; background: #3464B6;}
+#alph A {color: #213D7E; text-decoration: none; width: 0; height: 0; background: #99CCFF; padding: 0px 0px;}
+#alph A:hover {background: #6699FF; color: #222}
+#alph A.select {color: #000; text-decoration: none; width: 0; height: 0; background:  #FFCC99; padding: 0px 0px;}
+
+.tblheader1 {background: #99CCff;}
+.tbldata1 {background: #fff;}
+.tbldata2 {background: #ddeeff;}

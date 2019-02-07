@@ -1,0 +1,111 @@
+body { 
+    background-color:#efefef;
+}
+A {
+    text-decoration:none;
+}
+A:hover {
+    COLOR: #cc6600;
+    text-decoration:underline;
+}
+A.trans {COLOR: #000000;}
+.form {FONT-SIZE: 14px;}
+.formbut {FONT-SIZE: 9pt;}
+.m1 {FONT-SIZE: 9pt;}
+.trans {FONT-SIZE: 10px;}
+.search {FONT-SIZE: 10pt;}
+.txt {  FONT-SIZE: 12px;}
+.radios {   BACKGROUND-COLOR: #99cc99; COLOR: #ffffff;}
+.hdr {  FONT-FAMILY: Arial,Helvetica,Verdana,Geneva,sans-serif;}
+.rub1 { COLOR: #000066; FONT-FAMILY: Arial,Helvetica,Verdana,Geneva,sans-serif;}
+
+.small {font-size: 10pt;}
+.wide {width: 100%}
+.nav_bar {
+    color:#ffffff;
+    font-weight:bold;
+    background-color:#006699;
+}
+.nav_bar a{
+    color:#ffffff;
+    font-weight:bold;
+    text-decoration: underline;
+}
+.nav_bar a:hover{
+    color:#cc6600;
+    font-weight:bold;
+    text-decoration: none;
+}
+
+.tblheader {
+    color:#ffffff;
+    font-weight:bold;
+    background-color:#006699;
+}
+.tblheader A {
+    color:#ffffff;
+    font-weight:bold;
+}
+
+.tblheader1 {
+    font-weight:bold;
+    background-color:#deefff;
+}
+.tbldata2 {
+    background-color:#e0e0e0;
+}
+.tbldata1 {
+    background-color:#efefef;
+}
+
+.solutionbutton {
+    font-size:10px;
+    border-color: #999999;
+    background-color: #ededed;
+    color:#000000;
+    BORDER-RIGHT: 1px solid #999999;
+    BORDER-TOP: 1px solid #999999;
+    BORDER-LEFT: 1px solid #999999;
+    BORDER-BOTTOM: 1px solid #999999;   
+}
+.catalog {
+    text-decoration:none;
+}
+.pages {
+    font-weight:bold;
+    text-align:right;
+    text-decoration:none;
+    background-color:#ddeeff;
+}
+
+.clsSelected {font-weight:bold;}
+
+				.tabPage
+				{
+					BORDER: #8eb1e0 2PX SOLID;
+				}
+
+				.tabOff
+				{
+					FONT-FAMILY: Verdana;
+					FONT-SIZE: 11;
+					FONT-WEIGHT: 700;
+					TEXT-ALIGN: CENTER;
+					COLOR: white;
+					BACKGROUND-COLOR: #587bb1;
+					BORDER: 1px #587bb1 solid;
+					HEIGHT: 25;
+					CURSOR: HAND;
+				}
+				.tabOn
+				{
+					FONT-FAMILY: Verdana;
+					FONT-SIZE: 11;
+					FONT-WEIGHT: 700;
+					TEXT-ALIGN: CENTER;
+					COLOR: #003399;
+					BACKGROUND-COLOR: #8eb1e0;
+					BORDER-BOTTOM: #8eb1e0 1PX SOLID;
+					HEIGHT: 25;
+					CURSOR: HAND;
+				}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+
+"http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+xmlns:math="http://www.w3.org/1998/Math/MathML"
+
+xmlns:xlink="http://www.w3.org/1999/xlink">
+<head><title>MATH.RU{$page_title}</title>
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td align="left" width="100%">
+{if $logo}<img src="{$logo}" />{else}<h1>math.ru</h1>{/if}
+</td></tr></table></td></tr>
+<tr bgcolor="black"><td height="1"><img src="empty.gif" width="1" height="1"/></td></tr>
+<tr><td>{include file="nav_bar.tpl"}</td></tr>
+<tr><td class="tblheader1">{include file="pb/topmenu.tpl"}</td></tr>
+<tr bgcolor="black"><td height="1"><img src="empty.gif" width="1" height="1"/></td></tr>
+</table>

@@ -1,0 +1,7 @@
+AddDefaultCharset windows-1251
+php_flag register_globals on
+RewriteEngine on
+RewriteRule ^catalog.php(.*)$ - [L]
+RewriteRule ^lecture.php(.*)$ - [L]
+RewriteRule ^cat/(.*)$ /media/catalog.php?cat_path=$1 [QSA,L]
+RewriteRule ^lecture/([0-9]*)$ /media/lecture.php?id=$1 [QSA,L]

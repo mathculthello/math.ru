@@ -1,0 +1,28 @@
+{include file="header.xtpl"}
+<table border="0" cellpadding="10" cellspacing="5" width="100%">
+<tr>
+<td valign="top">
+{foreach from=$problems item=p}
+<b>Задача {$p.num}</b><br/>
+{$p.mathml_problem}
+<br/>
+{foreach from=$p.ppic item=pic}
+{$pic.num}
+<img src="/olympiads/pic/{$p.id}p_{$pic.num}.{$pic.type}"/><br/>
+{/foreach}
+{if $p.solution}
+<b>Решение</b><br/>
+{$p.mathml_solution}
+<br/>
+<a href="?id={$pset}&#x00026;format=mathml&#x00026;solution_ref={$p.solution_ref}">Скрыть решение</a>
+{else}
+<a href="?id={$pset}&#x00026;format=mathml&#x00026;solution_ref={$p.solution_ref}">Показать решение</a>
+{/if}
+<br/>
+{if $user->status eq "editor"}
+<a href="/olympiads/edit.php?id={$p.id}">Редактировать</a>
+{/if}
+<br/><br/>
+{/foreach}
+</td></tr></table>
+{include file="footer.xtpl"}
