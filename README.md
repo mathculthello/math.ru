@@ -9,3 +9,13 @@ PHP-зависимости
  - mysqli
  - openssl
 
+## Структура директорий
+```
+# Основная директория 
+/home/http/math
+
+# Архив
+/home/http/archive
+
+# Файлы конфигурации БД
+/usr/local/etc/math/
