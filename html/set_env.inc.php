@@ -12,7 +12,7 @@ require_once SMARTY_DIR.'Smarty.class.php';
 require_once ADODB_DIR.'adodb.inc.php';
 require_once 'admin/global.inc.php'; 
 //require_once '/usr/local/share/pear/LiveUser.php';
-require_once 'LiveUser.php';
+//require_once 'LiveUser.php';
 
 //setlocale (LC_ALL, array('ru_RU.CP1251', 'rus_RUS.1251'));
 
@@ -75,7 +75,7 @@ $liveuserConfig = array(
     )
 );
 
-$_LU =& LiveUser::factory($liveuserConfig);
+/* $_LU =& LiveUser::factory($liveuserConfig);
 $username = isset($_REQUEST['login']) ? $_REQUEST['login'] : null;
 $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 $logout = isset($_REQUEST['logout']) ? $_REQUEST['logout'] : null;
@@ -130,6 +130,7 @@ $_user_form =  $_LU->getProperty('form');
 $_user_form_profile =  $_LU->getProperty('form_profile');
 $_user_subj =  $_LU->getProperty('subj');
 $_user_cdkey =  $_LU->getProperty('cdkey');
+ */
 //echo $_user_email . $_user_cdkey;
 $_SMARTY = new Smarty;
 /*
@@ -163,6 +164,7 @@ $_SMARTY->plugins_dir=array(
 $_SMARTY->cache_dir = APP_ROOT.'/cache';
 $_SMARTY->debugging_ctrl = 'URL';
 //$_SMARTY->default_resource_type = 'cms';
+/*
 $_SMARTY->assign("_user_login", $_user_login);
 $_SMARTY->assign("_user_loggedin", $_user_loggedin);
 $_SMARTY->assign("_user_email", $_user_email);
@@ -182,6 +184,7 @@ $_SMARTY->assign("_user_district", $_user_district);
 $_SMARTY->assign("_user_subj", $_user_subj);
 if(isset($_REQUEST['redirect']))
 	$_SMARTY->assign('redirect', $_REQUEST['redirect']);
+ */
 
 $sql = 'SELECT * FROM news ORDER BY ord LIMIT 5';
 $news_titles = $_ADODB->GetAll($sql);
