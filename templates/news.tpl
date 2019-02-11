@@ -1,5 +1,5 @@
     <!-- Блок новостей -->
-    <div class="tit1">&nbsp;НОВОСТИ</div>
+    <div class="tit1">&nbsp;Новости</div>
 {foreach from=$news_titles item=n}
     <p><strong>{$n.date|date_format:"%d.%m.%Y"}</strong><br/>
 {$n.title}
@@ -10,6 +10,3 @@
 {/foreach}
     <div><a href="">все новости »</a></div><img src="/i/p.gif" width="1" height="10"/><br/>
     <!-- конец новостей -->
-{*    
-наш сайт готовится к открытию. Если вы попали сюда случайно, пожалуйста, зайдите к нам в феврале.
-*}
