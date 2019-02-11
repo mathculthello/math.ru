@@ -10,7 +10,11 @@
 </td></tr>
 <tr><td valign=bottom>
 <div align=right>
-<a href="/lib/book/{$ad.path}">{foreach from=$ad.author item=a name=authors}{$a.fname|initials}{$a.sname|initials}{$a.lname}{if !$smarty.foreach.authors.last},&nbsp;{/if}{/foreach}&nbsp;&nbsp;"{$ad.title}"</a>
+<a href="/lib/book/{$ad.path}">
+{foreach from=$ad.author item=a name=authors}
+{$a.fname|initials}{$a.sname|initials}{$a.lname}
+{if !$smarty.foreach.authors.last},&nbsp;{/if}
+{/foreach}&nbsp;&nbsp;"{$ad.title}"</a>
 </div>
 </td></tr></table>
 </td></tr></table>

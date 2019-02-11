@@ -1,0 +1,7 @@
+{
+    "require": {
+        "smarty/smarty": "^3.1",
+        "symfony/dotenv": "^4.2",
+        "adodb/adodb-php": "^5.20"
+    }
+}
