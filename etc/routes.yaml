@@ -1,0 +1,9 @@
+problems:
+        path: '/problems/'
+        defaults: {_controller: 'problems/index.php' }
+index:
+        path: '/'
+        defaults: {_controller: 'index.php' }
+schools:
+        path: '/schools/'
+        defaults: {_controller: 'schools/index.php' }
