@@ -1,6 +1,6 @@
 <?php
 
-define('APP_ROOT', '/home/http/mathdev');
+define('APP_ROOT', dirname(__DIR__));
 define('INCLUDE_DIR', APP_ROOT.'/include/');
 set_include_path(
 	APP_ROOT . PATH_SEPARATOR . 
