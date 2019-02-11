@@ -55,7 +55,6 @@ $_ADODB->SetFetchMode(ADODB_FETCH_ASSOC);
 $_ADODB->Execute('SET NAMES utf8');
 $ADODB_FORCE_TYPE = ADODB_FORCE_VALUE;
 
-
 /*
  * SMARTY
  * BOOTSTRAP TEMPLATE ENGINE
@@ -72,8 +71,6 @@ $_SMARTY->plugins_dir=array(
 
 $_SMARTY->cache_dir = APP_ROOT.'/cache';
 $_SMARTY->debugging_ctrl = 'URL';
-if(isset($_REQUEST['redirect']))
-	$_SMARTY->assign('redirect', $_REQUEST['redirect']);
 
 /* 
  * LOAD NEWS
