@@ -19,3 +19,6 @@ PHP-зависимости
 
 # Файлы конфигурации БД
 /usr/local/etc/math/
+
+# TODO
+ - Перевести на Symfony (HttpKernel, HttpFoundation)
