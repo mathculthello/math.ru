@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/style_nn.css" type="text/css"/>
 </head>
 <body>
+{include file="metrika.tpl"}
 <table width=100% height=100% cellpadding=0 cellspacing=0 border=0>
 <colgroup width="181" /><colgroup/><colgroup width="150" />
 <tr>
