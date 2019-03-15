@@ -5,6 +5,10 @@
         "adodb/adodb-php": "^5.20",
         "symfony/routing": "^4.2",
         "symfony/config": "^4.2",
-        "symfony/yaml": "^4.2"
+        "symfony/yaml": "^4.2",
+        "ext-mysqli": "*",
+        "ext-openssl": "*",
+        "ext-session": "*",
+        "ext-pdo_mysql": "*"
     }
 }
