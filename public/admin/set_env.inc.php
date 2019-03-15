@@ -9,7 +9,7 @@ $app_root = '/home/http/math';
 define('INCLUDE_DIR', $app_root.'/include/');
 define('SMARTY_DIR', '/usr/local/share/smarty/');
 define('ADODB_DIR', INCLUDE_DIR.'/adodb');
-//ini_set('display_errors', 'On');
+ini_set('display_errors', 'On');
 ini_set('include_path', INCLUDE_DIR.'PEAR' . PATH_SEPARATOR . INCLUDE_DIR.'PEAR-2015'. PATH_SEPARATOR . ini_get('include_path'));
 
 require_once SMARTY_DIR.'Smarty.class.php';

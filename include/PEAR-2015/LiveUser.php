@@ -462,7 +462,7 @@ class LiveUser
     function &factory($conf, $handle = '', $passwd = '',$logout = false,
         $remember = false, $confName = 'liveuserConfig')
     {
-        $obj = &new LiveUser();
+        $obj = new LiveUser();
 
         if (!empty($conf)) {
             if ($obj->_readConfig($conf, $confName)) {
@@ -569,7 +569,7 @@ class LiveUser
         if (!LiveUser::loadClass($classname)) {
             return false;
         }
-        $auth = &new $classname();
+        $auth = new $classname();
         if ($auth->init($conf, $containerName) === false) {
             return false;
         }
@@ -592,7 +592,7 @@ class LiveUser
         if (!LiveUser::loadClass($classname)) {
             return false;
         }
-        $perm = &new $classname();
+        $perm = new $classname();
         if ($perm->init($conf) === false) {
             return false;
         }
@@ -621,7 +621,7 @@ class LiveUser
             return LiveUser::storageFactory($confArray, $classprefix);
         }
         $storageConf =& array_pop($confArray);
-        $storage = &new $storageName();
+        $storage = new $storageName();
         if ($storage->init($storageConf, $confArray) === false) {
             return false;
         }
@@ -793,7 +793,7 @@ class LiveUser
         if (!LiveUser::loadClass('Crypt_Rc4')) {
             return false;
         }
-        $rc4 =& new Crypt_Rc4($secret);
+        $rc4 = new Crypt_Rc4($secret);
         return $rc4;
     }
 
