@@ -5,15 +5,17 @@ $o_by = isset($_GET['o_by'])?$_GET['o_by']:null;
 $n = isset($_GET['n'])?$_GET['n']:null;
 $o = isset($_GET['o'])?$_GET['o']:null;
 
-$app_root = '/home/http/math';
+$app_root = dirname(__DIR__);
 define('INCLUDE_DIR', $app_root.'/include/');
-define('SMARTY_DIR', '/usr/local/share/smarty/');
-define('ADODB_DIR', INCLUDE_DIR.'/adodb');
 ini_set('display_errors', 'On');
-ini_set('include_path', INCLUDE_DIR.'PEAR' . PATH_SEPARATOR . INCLUDE_DIR.'PEAR-2015'. PATH_SEPARATOR . ini_get('include_path'));
+set_include_path(
+	$app_root . PATH_SEPARATOR .
+	INCLUDE_DIR.'PEAR' . PATH_SEPARATOR . 
+	INCLUDE_DIR.'PEAR-2015'. PATH_SEPARATOR . 
+	get_include_path());
 
-require_once SMARTY_DIR.'Smarty.class.php';
-require_once ADODB_DIR.'/adodb.inc.php';
+require_once 'vendor/smarty/smarty/libs/Smarty.class.php';
+require_once 'vendor/adodb/adodb-php/adodb.inc.php';
 require_once INCLUDE_DIR.'/User.class.php';
 require_once 'global.inc.php';
 require_once 'LiveUser.php';
@@ -161,7 +163,7 @@ $_user_subj =  $_LU->getProperty('subj');
 // FIX PLUGINS
 $_SMARTY->plugins_dir=array(
 	'plugins',
-	INCLUDE_DIR.'/smarty/plugins'
+	INCLUDE_DIR.'/plugins'
 );
 
 
