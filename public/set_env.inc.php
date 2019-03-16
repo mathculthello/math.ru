@@ -4,9 +4,6 @@ define('APP_ROOT', dirname(__DIR__));
 define('INCLUDE_DIR', APP_ROOT.'/include/');
 set_include_path(
 	APP_ROOT . PATH_SEPARATOR . 
-	INCLUDE_DIR . PATH_SEPARATOR . 
-	INCLUDE_DIR.'PEAR' . PATH_SEPARATOR .
-	INCLUDE_DIR.'PEAR-2015' . PATH_SEPARATOR .
 	get_include_path());
 
 require_once 'vendor/autoload.php';
