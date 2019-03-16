@@ -4,3 +4,4 @@ compile
 yandex*
 .env
 vendor
+.DS_Store
