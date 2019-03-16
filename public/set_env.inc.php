@@ -64,7 +64,7 @@ $_SMARTY->compile_dir = APP_ROOT.'/compile';
 // FIX PLUGINS
 $_SMARTY->plugins_dir=array(
 	'plugins',
-	INCLUDE_DIR.'/smarty/plugins'
+	INCLUDE_DIR.'/plugins'
 );
 
 $_SMARTY->cache_dir = APP_ROOT.'/cache';
