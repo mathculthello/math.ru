@@ -101,7 +101,7 @@ $liveuserConfig = array(
     )
 );
 
-$_LU =& LiveUser::factory($liveuserConfig);
+$_LU = LiveUser::factory($liveuserConfig);
 $username = isset($_REQUEST['login']) ? $_REQUEST['login'] : null;
 $password = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 $logout = isset($_REQUEST['logout']) ? $_REQUEST['logout'] : null;
@@ -131,8 +131,8 @@ elseif ($username)
 }
 
 $_user_status = $_LU->getProperty('status');
-$_user_login = $_LU->_auth->handle;
-$_user_id = $_LU->_auth->authUserId;
+//$_user_login = $_LU->_auth->handle;
+//$_user_id = $_LU->_auth->authUserId;
 $_user_loggedin = $_LU->isLoggedIn();
 $_user_email = $_LU->getProperty('email');
 $_user_fullname = $_LU->getProperty('fullname');
@@ -147,15 +147,15 @@ $_user_form =  $_LU->getProperty('form');
 $_user_form_profile =  $_LU->getProperty('form_profile');
 $_user_subj =  $_LU->getProperty('subj');
 
-if (!$_user_loggedin || ($_user_status != 'admin' && $_user_status != 'editor' && $_user_status != 'dic_editor' && $_user_status != 'teacher_editor'))
-{
+//if (!$_user_loggedin || ($_user_status != 'admin' && $_user_status != 'editor' && $_user_status != 'dic_editor' && $_user_status != 'teacher_editor'))
+//{
 //var_dump($_LU->_auth);
-    Header('Location: /auth/login.php?redirect=/admin/');
-    exit;
+//    Header('Location: /auth/login.php?redirect=/admin/');
+//    exit;
 //echo $_user_loggedin;
 //echo $_user_status;
 //echo $_user_email;
-}
+//}
 
 
 // FIX PLUGINS
@@ -165,7 +165,7 @@ $_SMARTY->plugins_dir=array(
 );
 
 
-$_SMARTY->assign("_user_login", $_user_login);
+//$_SMARTY->assign("_user_login", $_user_login);
 $_SMARTY->assign("_user_status", $_user_status);
 $_SMARTY->assign("_user_loggedin", $_user_loggedin);
 $_SMARTY->assign("_user_email", $_user_email);
