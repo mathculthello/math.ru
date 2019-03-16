@@ -1,6 +1,1 @@
 php_flag display_errors on
-AuthType basic
-AuthName "не для всех"
-AuthBasicProvider file
-AuthUserFile "/usr/local/etc/htpasswd"
-Require user egor
