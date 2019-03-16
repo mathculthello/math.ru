@@ -21,5 +21,8 @@ PHP-зависимости
 /usr/local/etc/math/
 ```
 
+## Дамп базы
+https://math.ru/~egor/math.sql
+
 # TODO
  - Перевести на Symfony (HttpKernel, HttpFoundation)
