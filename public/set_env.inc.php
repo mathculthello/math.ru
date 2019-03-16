@@ -12,9 +12,9 @@ set_include_path(
 	get_include_path());
 
 require_once 'vendor/autoload.php';
-require_once '../vendor/smarty/smarty/libs/Smarty.class.php';
+require_once 'vendor/smarty/smarty/libs/Smarty.class.php';
 require_once 'admin/global.inc.php'; 
-require_once '../vendor/adodb/adodb-php/adodb.inc.php';
+require_once 'vendor/adodb/adodb-php/adodb.inc.php';
 
 /*
  * DOTENV
