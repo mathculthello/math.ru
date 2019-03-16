@@ -1,6 +1,6 @@
 {
     "require": {
-        "smarty/smarty": "^3.1",
+        "smarty/smarty": "2.*",
         "symfony/dotenv": "^4.2",
         "adodb/adodb-php": "^5.20",
         "symfony/routing": "^4.2",
