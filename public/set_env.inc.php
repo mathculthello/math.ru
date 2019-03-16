@@ -7,8 +7,6 @@ set_include_path(
 	INCLUDE_DIR . PATH_SEPARATOR . 
 	INCLUDE_DIR.'PEAR' . PATH_SEPARATOR .
 	INCLUDE_DIR.'PEAR-2015' . PATH_SEPARATOR .
-	'/usr/local/share/adodb'. PATH_SEPARATOR .
-	'/usr/local/share/smarty' . PATH_SEPARATOR .
 	get_include_path());
 
 require_once 'vendor/autoload.php';
