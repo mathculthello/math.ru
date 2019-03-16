@@ -23,6 +23,3 @@ PHP-зависимости
 
 ## Дамп базы
 https://math.ru/~egor/math.sql
-
-# TODO
- - Перевести на Symfony (HttpKernel, HttpFoundation)
