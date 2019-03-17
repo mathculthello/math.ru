@@ -11,4 +11,3 @@ $story = $_ADODB->GetAll($sql);
 $_SMARTY->assign('p', $paginator);
 $_SMARTY->assign('story', $story);
 $_SMARTY->display('history/stories/index.tpl');
-?>
