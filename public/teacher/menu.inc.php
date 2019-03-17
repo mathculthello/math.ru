@@ -15,5 +15,3 @@ $_courses_menu = array(
 );
 $_SMARTY->assign('_courses_menu', $_courses_menu);
 $_SMARTY->assign('_menu', $_menu);
-
-?>
