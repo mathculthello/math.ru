@@ -1,5 +1,7 @@
 # Сайт math.ru
 
+Работает на Апаче (используется mod_rewrite)
+
 PHP-зависимости
  - pdo
  - session
@@ -8,4 +10,4 @@ PHP-зависимости
  - openssl
 
 ## Дамп базы
-https://math.ru/~egor/math.sql
+https://www.dropbox.com/s/rq3mhj1t8hyrmhb/math.sql.zip?dl=0
