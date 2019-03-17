@@ -1,0 +1,22 @@
+{
+  "name": "math.ru",
+  "version": "1.0.0",
+  "description": "Работает на Апаче (используется mod_rewrite)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aeifn/math.ru.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aeifn/math.ru/issues"
+  },
+  "homepage": "https://github.com/aeifn/math.ru#readme",
+  "dependencies": {
+    "webpack": "^4.29.6"
+  }
+}
