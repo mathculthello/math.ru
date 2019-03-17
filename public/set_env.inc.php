@@ -3,6 +3,7 @@
 define('APP_ROOT', dirname(__DIR__));
 define('INCLUDE_DIR', APP_ROOT.'/include/');
 set_include_path(
+	INCLUDE_DIR . PATH_SEPARATOR .
 	APP_ROOT . PATH_SEPARATOR . 
 	get_include_path());
 
