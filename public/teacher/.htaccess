@@ -1,5 +1,3 @@
-AddDefaultCharset windows-1251
-php_flag register_globals on
 RewriteEngine on
 RewriteRule ^doc/cat.php(.*)$ - [L]
 RewriteRule ^doc/doc.php(.*)$ - [L]
