@@ -8,10 +8,9 @@ set_include_path(
 	get_include_path());
 
 require_once 'vendor/autoload.php';
-require_once 'vendor/smarty/smarty/libs/Smarty.class.php';
+//require_once 'vendor/smarty/smarty/libs/Smarty.class.php';
 require_once 'admin/global.inc.php'; 
-require_once 'vendor/adodb/adodb-php/adodb.inc.php';
-
+#require_once 'vendor/adodb/adodb-php/adodb.inc.php';
 /*
  * DOTENV
  * LOAD PARAMETERS
@@ -60,10 +59,12 @@ $_SMARTY->template_dir = APP_ROOT.'/templates';
 $_SMARTY->compile_dir = APP_ROOT.'/compile';
 
 // FIX PLUGINS
+/*
 $_SMARTY->plugins_dir=array(
 	'plugins',
 	INCLUDE_DIR.'/plugins'
 );
+ */
 
 $_SMARTY->cache_dir = APP_ROOT.'/cache';
 $_SMARTY->debugging_ctrl = 'URL';
@@ -75,5 +76,6 @@ $sql = 'SELECT * FROM news ORDER BY ord LIMIT 5';
 $sth = $_PDO->query($sql);
 $news_titles = $sth->fetchAll();
 $_SMARTY->assign('news_titles', $news_titles);
+
 
 ?>
