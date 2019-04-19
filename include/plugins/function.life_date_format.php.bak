@@ -38,9 +38,9 @@ function smarty_function_life_date_format($params, &$smarty)
         $ret_string = $birth.'&nbsp;-&nbsp;'.$death;
     } elseif ($birth) {
         if (strlen($birth) == 4)
-            $ret_string = $birth.'&nbsp;Рі.СЂ.';
+            $ret_string = $birth.'&nbsp;г.р.';
         else
-            $ret_string = 'СЂРѕРґ.&nbsp;'.$birth;
+            $ret_string = 'род.&nbsp;'.$birth;
     } elseif ($death) {
         $ret_string = '-&nbsp;'.$death;
     }
