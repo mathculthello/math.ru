@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  webserver:
+    build: 
+      context: ./webserver
+    container_name: 'webserver'
+    restart: 'always'
+    ports:
+      - "80:80"
+      - "443:443"
+    links: 
+      - mysql
+    volumes: 
+      - ../:/var/www/html/math.ru
+      - ./webserver/php/php.ini:/usr/local/etc/php/php.ini
+      - ./webserver/vhosts:/etc/apache2/sites-enabled
+      - .logs:/logs/apache2/var/log/apache2
+  mysql:
+    build: ./mysql
+    container_name: 'mysql'
+    restart: 'always'
+    ports:
+      - "3306:3306"
+    volumes: 
+      - .data/mysql:/var/lib/mysql
+      - .logs/mysql:/var/log/mysql
+      - ./dump:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 'localhost'
+      MYSQL_DATABASE: 'math'
+      MYSQL_USER: 'math'
+      MYSQL_PASSWORD: 'password'
+    command: --innodb-use-native-aio=0
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 'phpmyadmin'
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - '8080:80'
+    volumes: 
+      - /sessions
