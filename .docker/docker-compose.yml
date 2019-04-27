@@ -32,15 +32,3 @@ services:
       MYSQL_USER: 'math'
       MYSQL_PASSWORD: 'password'
     command: --innodb-use-native-aio=0
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: 'phpmyadmin'
-    links:
-      - mysql
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-    ports:
-      - '8080:80'
-    volumes: 
-      - /sessions
