@@ -3,14 +3,10 @@
 		<td align="center">
  		<a {if $_path == "lib"}class="select"{else}{/if}
 		<noindex><a href="http://olimpiada.ru" target="_blank">Олимпиады</a></noindex>&nbsp;|
-		<!--a {if $_path == "pb"}class="select"{else}href="/pb/"{/if}>База задач</a>&nbsp;| -->
-		<!-- <a href="/">Кружки</a> |--> 
 		<a {if $_path == "schools"}class="select"{else}href="/schools/"{/if}>Научные&nbsp;школы</a>&nbsp;| 
 		<a href="/teacher/">Учительская</a>&nbsp;| 
 		<a {if $_path == "history"}class="select"{else}href="/history/"{/if}>История&nbsp;математики</a>&nbsp;| 
-	<!-- <a href="/forum/">Форумы</a> | <a href="/">Консультации</a> |--> 
-	<a {if $_path == "founders"}class="select"{else}href="/founders/"{/if}>Учредители&nbsp;и&nbsp;спонсоры</a>&nbsp;| 
-	<a href="/admin/">Вход&nbsp;для&nbsp;редакторов</a>
+	<a {if $_path == "founders"}class="select"{else}href="/founders/"{/if}>Учредители&nbsp;и&nbsp;спонсоры</a>
 
 	<br/><img src="/i/p.gif" width="360" height="1"/>
 	</td>
@@ -25,7 +21,6 @@
 <br/>
 </noindex>
 
-<!-- 111111111111 -->
 	<a href="/copyright/">©, Copyright</a>
 	</td>
 

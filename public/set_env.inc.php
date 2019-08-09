@@ -56,7 +56,7 @@ $ADODB_FORCE_TYPE = ADODB_FORCE_VALUE;
  */
 $_SMARTY = new Smarty;
 $_SMARTY->template_dir = APP_ROOT.'/templates';
-$_SMARTY->compile_dir = APP_ROOT.'/compile';
+$_SMARTY->compile_dir = '/tmp/compile';
 
 // FIX PLUGINS
 /*
@@ -66,7 +66,7 @@ $_SMARTY->plugins_dir=array(
 );
  */
 
-$_SMARTY->cache_dir = APP_ROOT.'/cache';
+$_SMARTY->cache_dir = '/tmp/cache';
 $_SMARTY->debugging_ctrl = 'URL';
 
 /* 
