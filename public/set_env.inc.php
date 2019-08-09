@@ -17,8 +17,8 @@ require_once 'admin/global.inc.php';
  */
 use Symfony\Component\Dotenv\Dotenv;
 
-$dotenv=new Dotenv();
-$dotenv->load(APP_ROOT.'/.env');
+//$dotenv=new Dotenv();
+//$dotenv->load(APP_ROOT.'/.env');
 
 /* 
  * DEBUG
