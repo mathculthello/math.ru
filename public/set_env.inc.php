@@ -17,8 +17,8 @@ require_once 'admin/global.inc.php';
  */
 use Symfony\Component\Dotenv\Dotenv;
 
-//$dotenv=new Dotenv();
-//$dotenv->load(APP_ROOT.'/.env');
+$dotenv=new Dotenv();
+$dotenv->load('/usr/local/etc/apache24/extra/env.'.getenv('MODE'));
 
 /* 
  * DEBUG
@@ -56,17 +56,18 @@ $ADODB_FORCE_TYPE = ADODB_FORCE_VALUE;
  */
 $_SMARTY = new Smarty;
 $_SMARTY->template_dir = APP_ROOT.'/templates';
-$_SMARTY->compile_dir = '/tmp/compile';
+$compile_dir = '/tmp/'.getenv('MODE').'_compile';
+if (!file_exists($compile_dir)) mkdir($compile_dir, 0755, true);
+$_SMARTY->compile_dir = $compile_dir;
 
 // FIX PLUGINS
-/*
-$_SMARTY->plugins_dir=array(
-	'plugins',
-	INCLUDE_DIR.'/plugins'
-);
- */
+$_SMARTY->addPluginsDir(INCLUDE_DIR.'/plugins');
 
-$_SMARTY->cache_dir = '/tmp/cache';
+
+
+$cache_dir = '/tmp/'.getenv('MODE').'_cache';
+if (!file_exists($cache_dir)) mkdir($cache_dir, 0755, true);
+$_SMARTY->cache_dir = $cache_dir;
 $_SMARTY->debugging_ctrl = 'URL';
 
 /* 

@@ -1,4 +1,6 @@
+{if isset($letter)}
 {include file="lib/alpha.tpl" _href="/lib/alph/" _l=$letter}	
+{/if}
 {*
 {include file="news.tpl"}
 *}

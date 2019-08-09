@@ -2,7 +2,7 @@
 
 <table width="180" cellpadding="0" cellspacing="0" border="0"  id="menu">
 {foreach from=$series item=s}
-{if $s.id == $ser}
+{if isset($ser) && $s.id == $ser}
 <tr><td class=sel><img src="/i/m_u2.gif" width="180" height="4"></td></tr>
 <tr id="txt"><td class=sel>{$s.name}</td></tr>
 <tr><td class=sel><img src="/i/m_d2.gif" width="180" height="4"></td></tr>

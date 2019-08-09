@@ -27,7 +27,7 @@ var tooltip{$b.id} = "{$b.anno|truncate:400|regex_replace:"/[\"]/":"\\\'"|regex_
 --></script>
 {/if}
 <td><a href="/lib/book/{$b.path}"{if $b.anno} onmouseover="this.T_STATIC=true;this.T_DELAY = 1000;this.T_WIDTH=500;this.T_STICKY=true;return escape(tooltip{$b.id})"{else} onmouseover="this.T_DELAY=100000;return escape('')"{/if}{if $search_mode == "search"} target="_new"{/if}>{$b.title}</a>
-{if $b.matched_pages}
+{if isset($b.matched_pages) && $b.matched_pages}
 <br/>
 Страницы: {$b.matched_pages}
 {/if}

@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 <tr>
 <td id=menucol valign=top  height="85%" width="181">
-{include file=left.tpl}
+{include file="left.tpl"}
 </td>
 <td id=content valign=top align=center><div>
 {include file="content.tpl"}
