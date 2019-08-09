@@ -11,3 +11,7 @@ PHP-зависимости
 
 ## Дамп базы
 https://www.dropbox.com/s/rq3mhj1t8hyrmhb/math.sql.zip?dl=0
+
+Поместить дамп базы в [.docker/dump](.docker/dump)
+Запустить контейнеры.
+Установить зависимости.
