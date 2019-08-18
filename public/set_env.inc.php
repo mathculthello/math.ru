@@ -61,7 +61,9 @@ if (!file_exists($compile_dir)) mkdir($compile_dir, 0755, true);
 $_SMARTY->compile_dir = $compile_dir;
 
 // FIX PLUGINS
-$_SMARTY->addPluginsDir(INCLUDE_DIR.'/plugins');
+//$_SMARTY->addPluginsDir(INCLUDE_DIR.'/plugins');
+// DOWNGRADE TO SMARTY 2
+$_SMARTY->plugins_dir=['plugins',INCLUDE_DIR.'/plugins'];
 
 
 
