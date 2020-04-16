@@ -17,8 +17,12 @@ require_once 'admin/global.inc.php';
  */
 use Symfony\Component\Dotenv\Dotenv;
 
+
+
 $dotenv=new Dotenv();
-$dotenv->load('/usr/local/etc/apache24/extra/env.'.getenv('MODE'));
+$envfile='/usr/local/etc/apache24/extra/env.'.getenv('MODE');
+if(file_exists($envfile))
+	$dotenv->load('/usr/local/etc/apache24/extra/env.'.getenv('MODE'));
 
 /* 
  * DEBUG

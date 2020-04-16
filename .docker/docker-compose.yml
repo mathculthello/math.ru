@@ -16,6 +16,14 @@ services:
       - ./webserver/php/php.ini:/usr/local/etc/php/php.ini
       - ./webserver/vhosts:/etc/apache2/sites-enabled
       - .logs:/logs/apache2/var/log/apache2
+    environment:
+      MODE: 'production'
+      DB_SERVER: 'mysql'
+      DB_NAME: 'math'
+      DB_USER: 'math'
+      DB_PASS: 'password'
+      DB_USERTABLE: 'user'
+      DEBUG: 'TRUE'
   mysql:
     build: ./mysql
     container_name: 'mysql'

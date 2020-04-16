@@ -1,4 +1,4 @@
-FROM php:7.1.20-apache
+FROM php:7.2-apache
 
 RUN apt-get -y update --fix-missing
 RUN apt-get upgrade -y
@@ -7,21 +7,21 @@ RUN apt-get upgrade -y
 RUN apt-get -y install apt-utils nano wget dialog
 
 # Install important libraries
-RUN apt-get -y install --fix-missing apt-utils build-essential git curl libcurl3 libcurl3-dev zip
+RUN apt-get -y install --fix-missing apt-utils build-essential git curl libcurl4 libcurl4-openssl-dev zip
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-2.5.0
+RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 
 # Other PHP7 Extensions
 
 RUN apt-get -y install libmcrypt-dev
-RUN docker-php-ext-install mcrypt
+# RUN docker-php-ext-install mcrypt
 
-RUN apt-get -y install libsqlite3-dev libsqlite3-0 mysql-client
+RUN apt-get -y install libsqlite3-dev libsqlite3-0 #mysql-client
 RUN docker-php-ext-install pdo_mysql 
 RUN docker-php-ext-install pdo_sqlite
 RUN docker-php-ext-install mysqli
@@ -44,3 +44,7 @@ RUN docker-php-ext-install -j$(nproc) gd
 
 # Enable apache modules
 RUN a2enmod rewrite headers
+
+WORKDIR /var/www/html/math.ru
+
+RUN ls -l /var/www/html/math.ru
