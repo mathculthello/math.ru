@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/aeifn/math.ru#readme",
   "dependencies": {
-    "webpack": "^4.29.6"
+    "webpack": "^4.42.1"
   }
 }
