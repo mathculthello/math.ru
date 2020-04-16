@@ -11,15 +11,6 @@
 	<br/><img src="/i/p.gif" width="360" height="1"/>
 	</td>
 	<td id="copy" align="center"  style="background: url('/i/line_v.gif') repeat-y #213D7E">	
-<noindex>
-<!--begin of Top100 logo-->
-<a href="http://top100.rambler.ru/top100/"><img src="http://top100-images.rambler.ru/top100/banner-88x31-rambler-blue.gif" alt="" width="88" height="31" border="0" /></a>
-<!--end of Top100 logo -->
-<!--begin of Top100-->
-<a href="http://top100.rambler.ru/top100/"> <img src="http://counter.rambler.ru/top100.cnt?188597" alt="Rambler's Top100" width="1" height="1" border="0" /></a>
-<!--end of Top100 code-->
-<br/>
-</noindex>
 
 	<a href="/copyright/">©, Copyright</a>
 	</td>
