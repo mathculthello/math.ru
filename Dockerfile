@@ -1,6 +1,6 @@
 FROM php:apache
 
-WORKDIR /var/www/html/math.ru
+WORKDIR /
 
 # Composer
 RUN apt-get -y update && apt-get -y upgrade
@@ -23,5 +23,5 @@ RUN docker-php-ext-install mysqli
 # Enable apache modules
 RUN a2enmod rewrite headers
 
-COPY composer.json .
+COPY composer.json /
 RUN composer install

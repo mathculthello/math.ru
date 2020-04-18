@@ -7,7 +7,8 @@ set_include_path(
 	APP_ROOT . PATH_SEPARATOR . 
 	get_include_path());
 
-require_once 'vendor/autoload.php';
+$autoload=getenv('AUTOLOAD')?getenv('AUTOLOAD'):'vendor/autoload.php';
+require_once $autoload;
 //require_once 'vendor/smarty/smarty/libs/Smarty.class.php';
 require_once 'admin/global.inc.php'; 
 #require_once 'vendor/adodb/adodb-php/adodb.inc.php';
